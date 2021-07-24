@@ -1,13 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8">
         <title>{{ title }} - {{ site }}</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="{{ '/styles/tailwind.css' | url }}">
+        <!-- <link rel="stylesheet" href="{{ '/styles/tailwind.css' | url }}"> -->
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
         <link rel="stylesheet" href="{{ '/styles/main.css' | url }}">
     </head>
+    <style>
+        :root {
+        --red: 28;
+        --green: 150;
+        --blue: 130;
+
+        --accessible-color: calc(
+            (
+            (
+                (
+                (var(--red) * 299) +
+                (var(--green) * 587) +
+                (var(--blue) * 114)
+                ) / 1000
+            ) - 128
+            ) * -1000
+        );
+        }
+
+        body {
+        color:
+            rgb(
+            var(--accessible-color),
+            var(--accessible-color),
+            var(--accessible-color)
+            );
+        background-color:
+            rgb(
+            var(--red),
+            var(--green),
+            var(--blue)
+            );
+        }
+    </style> 
     <body>
-        {{ content }}
+         <!-- Added site name to header/NAV -->
+    <header>
+        <h1> {{ site }} </h1>
+        <!-- <div> -->
+        <nav>
+            <ul class="menu">
+                <a href="{{ '/' | url }}" >Home</a>
+                <a href="{{ '/aboutUs' | url}}">About Us</a>
+            </ul>
+        </nav>
+        <!-- </div> -->
+    </header>
+    
+
+
+       <main>
+            <hr>  
+            <div>
+                {{content}}
+           </div>
+                       
+
+         
+        
+        <!-- Implemented Footer on the page. Added a line break for easy consumption.  -->
+        <!-- Added a NAV based Site MAP to the footer  -->
+            <hr>
+            <footer>
+                <!-- Added Copyright symbol, c -->
+                <p>&copy;Copyright Team 6. All rights Reserved!</p>
+                <!-- <nav> -->
+                    <!-- site map at bottom of page so user has easy access to home/aboutUs  -->
+                    <!-- <h3>Site Map:</h3>
+                    <ul>
+                        <a href="{{ '/' | url }}">Home </a>
+                        <a href="{{ '/aboutUs' | url}}">About Us</a>
+                    </ul>
+                </nav>         -->
+            </footer>
+        </main>
+    </body>
+ 
     </body>
 </html>

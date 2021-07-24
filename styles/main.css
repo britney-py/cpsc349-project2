@@ -1,0 +1,167 @@
+header{
+    color: black;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+/* 
+.container{
+    height: 15vh;
+    width: 100vh;
+    padding: 0.5em;
+    margin: -5vh auto 0;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+} */
+
+/* menu base styles */
+nav {
+    /* background:rgb(151, 207, 160); */
+}
+
+/* nav ul{
+    list-style-type: none;
+    padding: 0;
+} */
+
+nav a{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    display: block;
+    padding: 10px;
+}
+
+nav a:hover{
+    background-color: #fff;
+}
+
+/* flex styles */
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*box container for pics and data */
+.box-container{
+    height: 50px;
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.photo-box{
+    width: 75%;
+    height: 75%;
+}
+
+.data-box{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+    flex-direction: row;
+    color: black;
+}
+
+footer{
+    margin: auto;
+    text-align: center;
+}
+
+h3{
+    color: black;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;  
+    justify-content: space-around;
+}
+
+.flex-item {
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+    margin-top: 10px;
+    line-height: 150px;
+    color: black;
+    font-family: monospace;
+    font-size: 15px;
+    text-align: flex-end;
+}
+
+.container{
+    /* background: gray;
+    width: 500px;
+    height: 200px;  */
+    list-style-type: none;
+    display: flex;
+    flex-flow: wrap;
+    /* position: relative; */
+}
+
+.item{
+    background: blue;
+    margin: 4px;
+    flex: 0 1 calc(20% - 8px);
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.display-links{
+    display: inline;
+}
+
+li{
+    flex: 0 0 30%;
+    height: 100px;
+    background-color: beige;
+    margin: 5px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.menu {
+    text-align: right;
+
+}
+
+.links{
+    display: block;
+    position: absolute;
+    top: 1670px;
+    color: black;
+}
+
+a {
+    font-family: monospace;
+    color: black;
+    font-size: 20px;
+}
+
+.even-col{
+    display: flex;
+}
+
+.col{
+    flex: 1;
+    justify-content: space-evenly;
+}
+
