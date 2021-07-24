@@ -4,17 +4,54 @@ title: Team 6
 layout: base
 ---
 
+<style>
+    :root {
+    --red: 86;
+    --green: 81;
+    --blue: 92;
+
+    --accessible-color: calc(
+        (
+        (
+            (
+            (var(--red) * 299) +
+            (var(--green) * 587) +
+            (var(--blue) * 114)
+            ) / 1000
+        ) - 128
+        ) * -1000
+    );
+    }
+
+    body {
+        color:
+            rgb(
+            var(--accessible-color),
+            var(--accessible-color),
+            var(--accessible-color)
+            );
+        background-color:
+            {{color_keyword}}
+    }
+</style>
+
+
+{% for photo in collections.photos %}
+{% if page.url == photo.url%}
+<body style="background-color: {{photo.data.color_keyword}};">
+
+{% endif %} 
+{% endfor %}
 
 <div class="flex-container">
-{{ content }}
  <!-- This hides the main photo list when you are on a photo page. 
     not display the lists if current url == base url-->
     
  {% unless page.url != '/' %}
- <ul> 
+ <ul class="some-links"> 
      {% for photo in collections.photos %}
-         <li>                    
-             <a class="item" href="{{ photo.url | url}}">
+         <li class="links-li">                    
+             <a href="{{ photo.url | url}}">
                  A {{ photo.data.photo_keyword }} photo
                  by {{ photo.data.photographer_first_name}} {{ photo.data.photographer_last_name }}                                            
              </a>                
@@ -23,34 +60,38 @@ layout: base
  </ul>
  {% endunless %}  
  
+
  <!-- This displays the photo metadata. -->
  <!-- It uses a loop to check the URL and see what photo you are on -->
  {% for photo in collections.photos %}
             {% if page.url == photo.url%}
-     <h3> Available Details:</h3>
-     <ul>
+     <ul class="pic-row">
+         <li>{{ content }}</li>
+         <ul class="ul-details">
+            <li class="details"><h3> Available Details:</h3></li>
 
-         {% if photo.data.photo_location_city != '' %}
-         <li >
-             City: {{photo.data.photo_location_city}}
-         </li>
-         <li>
-             Country: {{photo.data.photo_location_country}}
-         </li>
-         {%endif%}
-         {% if photo.data.photographer_first_name != '' %}
-         <li >
-             Photographer: {{photo.data.photographer_first_name}} {{photo.data.photographer_last_name}}
-         </li>
-     
-         {%endif%}
-         <li>
-             Username: {{photo.data.photographer_username}}
-         </li>
-         <li >
-             <a href="{{photo.data.photo_url | url}}">Source</a> 
-         
-         </li>
+            {% if photo.data.photo_location_city != '' %}
+            <li class="details">
+                City: {{photo.data.photo_location_city}}
+            </li>
+            <li class="details">
+                Country: {{photo.data.photo_location_country}}
+            </li>
+            {%endif%}
+            {% if photo.data.photographer_first_name != '' %}
+            <li class="details">
+                Photographer: {{photo.data.photographer_first_name}} {{photo.data.photographer_last_name}}
+            </li>
+        
+            {%endif%}
+            <li class="details">
+                Username: {{photo.data.photographer_username}}
+            </li>
+            <li class="details">
+                <a href="{{photo.data.photo_url | url}}">Source</a> 
+            
+            </li>
+         </ul>
         </ul>
      {%endif%}
  {% endfor %}
@@ -72,7 +113,6 @@ layout: base
 
  <!-- Rendering the pageable tab -->
  <div class="pagination">
-<div class="flex-item">
  <!-- Rendering the pageable tab when the current page is not the first or 
     last page -->
  {% if numpage >  0  and numpage < 99 %}  
@@ -95,23 +135,23 @@ layout: base
      {% endif %}      
 
 
-    <div class="even-col">
-    <a href="{{ lurl |url }}">Previous</a>   &nbsp;
-    <a href="">{{numpage}}</a>        &nbsp;
-    <a href="{{ rurl | url }}">Next</a>   
+    <!-- <div class="even-col"> -->
+    <a class="turn-gray" href="{{ lurl |url }}">Previous</a>   &nbsp;
+    <a class="turn-gray" href="">{{numpage}}</a>        &nbsp;
+    <a class="turn-gray" href="{{ rurl | url }}">Next</a>   
 
     <!-- Rendering the pageable tab when the current page is nthe last page -->    
     {% elsif numpage ==  99 %}
         {% capture lurl  %}{{ "/photos/0xx/" | replace: "xx", lValue }}{% endcapture %}             
-        <a href="{{ lurl | url }}">Previous</a>   &nbsp;
-        <a href="">{{numpage}}</a>        &nbsp;
-        <a href="">Next</a>    
+        <a class="turn-gray" href="{{ lurl | url }}">Previous</a>   &nbsp;
+        <a class="turn-gray" href="">{{numpage}}</a>        &nbsp;
+        <a class="turn-gray" href="">Next</a>    
     <!-- Rendering the pageable tab when the current page is first page --> 
     {% elsif numpage ==  0 %}
         {% capture rurl  %}{{ "/photos/00xx/" | replace: "xx", rValue }}{% endcapture %}                
-        <a href="">Previous</a>           &nbsp;
-        <a href="">{{numpage}}</a>        &nbsp;
-        <a href="{{ rurl | url }}">Next</a>              
+        <a class="turn-gray" href="">Previous</a>           &nbsp;
+        <a class="turn-gray" href="">{{numpage}}</a>        &nbsp;
+        <a class="turn-gray" href="{{ rurl | url }}">Next</a>              
     {% endif %}                      
  </div>
 </div>
