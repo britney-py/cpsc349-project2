@@ -1,0 +1,154 @@
+/* changes header color, font, and font size*/
+header{
+    color: black;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+/* changes the navbar for home & about us*/
+nav a{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    display: block;
+    padding: 10px;
+}
+
+nav a:hover{
+    background-color: #fff;
+}
+
+/* flex styles */
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* changes text, position, width, and height of footer */
+footer{
+    text-align: center;   
+    position: absolute;
+    top:4500px;
+    width:100%;
+    height:100px;
+}
+
+/* changes header 3 color, font, and font size */
+h3{
+    color: black;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;  
+    justify-content: space-around;
+}
+
+li{
+    height: 100px;
+    margin: 5px;
+}
+
+.links-li{
+    flex: 0 0 30%;
+    height: 100px;
+    background-color: cornflowerblue;
+    margin: 5px;
+}
+
+.details{
+    flex: 0 0 10%;
+    margin: 0px;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    align-items: right;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+
+}
+
+.links{
+    display: block;
+    position: absolute;
+    top: 1670px;
+    color: black;
+}
+
+a {
+    font-family: monospace;
+    color: black;
+    font-size: 20px;
+}
+
+.even-col{
+    display: flex;
+    flex-direction: row;
+    color: gray;
+}
+
+.col{
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+.some-links{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.pic-row{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style-type: none;
+}
+
+.pagination{
+    position: absolute;
+    bottom: -500px;
+}
+
+.ul-details{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    list-style-type: none;
+}
+
+figcaption{
+    text-align: center;
+    font-size: 15px;
+    display: table-caption;
+    caption-side: bottom;
+    width: 100%;
+}
+
+.turn-gray{
+    color: gray;
+}
+
+.about-names{
+    list-style-type: none;
+    margin: 2px;
+    padding: 0px;
+}
